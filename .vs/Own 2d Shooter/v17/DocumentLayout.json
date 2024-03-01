@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\OWNCoding\\Godot\\own_2d_shooter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8865959-3821-4C0D-8C79-BF8E95BEC92D}|Own 2d Shooter.csproj|c:\\owncoding\\godot\\own_2d_shooter\\scripts\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8865959-3821-4C0D-8C79-BF8E95BEC92D}|Own 2d Shooter.csproj|solutionrelative:scripts\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "C:\\OWNCoding\\Godot\\own_2d_shooter\\Scripts\\Sprite.cs",
+              "RelativeDocumentMoniker": "Scripts\\Sprite.cs",
+              "ToolTip": "C:\\OWNCoding\\Godot\\own_2d_shooter\\Scripts\\Sprite.cs",
+              "RelativeToolTip": "Scripts\\Sprite.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T17:47:45.138Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
