@@ -20,11 +20,13 @@ public partial class Gun : Line2D
 	public bool reloading = false;
 
 	Player player;
+	Bullet bullet;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		player = (Player) this.GetParent().GetParent(); // get Player
+		// bullet = (Bullet) GetNode("/root/World/Player/Body/Gun");
 		GD.Print($"weapon {player.Weapon}");
 		InitStats();
 	}
