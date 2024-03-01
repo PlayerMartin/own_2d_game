@@ -7,6 +7,14 @@ public partial class Player : Node2D
 {
 	[Export]
 	public weapon Weapon { get; set; }
+	[Export]
+	public double Speed { get; private set; }
+	[Export]
+	public double Health { get; private set; }
+	[Export]
+	public double ViewRange { get; private set; }
+	[Export]
+	public double Armon { get; private set; }
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
