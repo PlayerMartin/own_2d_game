@@ -7,6 +7,8 @@ public partial class Gun : Node2D
 	[Export]
 	public double Firerate { get; set; }
 	[Export]
+	public double BulletPerSecond { get; set; }
+	[Export]
 	public int Damage { get; set; }
 	[Export]
 	public int ReloadTime { get; set; }
@@ -21,6 +23,8 @@ public partial class Gun : Node2D
 	PackedScene bullet_scn;
 
 	public bool reloading = false;
+	public double time_until_fire;
+	public double GlobalDelta;
 	
 	Player player;
 
@@ -38,8 +42,8 @@ public partial class Gun : Node2D
 		switch (player.Weapon)
 		{
 			case weapon.sniper:
-				Firerate = 1;
 				Damage = 80;
+				BulletPerSecond = 1;
 				ReloadTime = 3;
 				AmmoMaxCount = 6;
 				AmmoCurrCount = AmmoMaxCount;
@@ -48,12 +52,14 @@ public partial class Gun : Node2D
 			default: // TODO
 				break;
 		}
+		Firerate = 1 / BulletPerSecond;
+		time_until_fire = Firerate;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+		time_until_fire += delta;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -87,9 +93,10 @@ public partial class Gun : Node2D
 
 	public void Shoot(InputEventMouseButton mouseEvent)
 	{
-		if (AmmoCurrCount != 0 && !reloading) {
+		if (time_until_fire >= Firerate && AmmoCurrCount != 0 && !reloading) {
 			AmmoCurrCount--;
 			SpawnBullet();
+			time_until_fire = 0;
 			GD.Print($"Curr ammo {AmmoCurrCount} at {mouseEvent.Position}");
 		}
 	}
