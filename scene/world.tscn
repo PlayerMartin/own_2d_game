@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh42n8f3feksf"]
+[gd_scene load_steps=5 format=3 uid="uid://dh42n8f3feksf"]
 
 [ext_resource type="PackedScene" uid="uid://djmwjxd3lom3m" path="res://scene/player.tscn" id="1_7lehv"]
 [ext_resource type="PackedScene" uid="uid://upv7dyau2o4w" path="res://scene/gui.tscn" id="2_x8v15"]
+[ext_resource type="PackedScene" uid="uid://jb8qr0stmq0m" path="res://scene/cover.tscn" id="3_gibsh"]
+[ext_resource type="PackedScene" uid="uid://o4umdmw3ikgp" path="res://scene/wall.tscn" id="4_bpja1"]
 
 [node name="World" type="Node2D"]
 
@@ -17,3 +19,98 @@ position = Vector2(219, 358)
 position = Vector2(811, 321)
 rotation = -3.11829
 script = null
+
+[node name="Covers" type="Node" parent="."]
+
+[node name="Cover" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(1370, 111)
+rotation = 1.57079
+
+[node name="Cover2" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(432, 428)
+rotation = 1.57079
+
+[node name="Cover3" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(385, 38)
+rotation = 3.14159
+
+[node name="Cover4" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(1754, 624)
+rotation = 1.57079
+
+[node name="Cover5" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(1599, -274)
+rotation = 0.785397
+
+[node name="Cover6" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(1232, -354)
+rotation = 0.523598
+
+[node name="Cover7" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(635, -294)
+
+[node name="Cover8" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(260, 868)
+rotation = 0.523598
+
+[node name="Cover9" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(2040, 164)
+rotation = 1.57079
+
+[node name="Cover10" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(530, 44)
+rotation = 1.57079
+
+[node name="Cover11" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(915, 914)
+
+[node name="Cover12" parent="Covers" instance=ExtResource("3_gibsh")]
+position = Vector2(1253, 625)
+rotation = -0.523598
+
+[node name="Wallls" type="Node" parent="."]
+
+[node name="Wall" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(691, 673)
+
+[node name="Wall2" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(388, 318)
+
+[node name="Wall3" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(956, 78)
+
+[node name="Wall4" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1081, 1172)
+
+[node name="Wall5" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1585, 926)
+
+[node name="Wall6" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1799, 430)
+
+[node name="Wall7" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(154, -49)
+
+[node name="Wall8" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(-49, 841)
+
+[node name="Wall9" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(593, 1160)
+
+[node name="Wall10" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1439, 292)
+
+[node name="Wall11" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1312, -147)
+
+[node name="Wall12" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(970, -450)
+
+[node name="Wall13" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(526, -256)
+
+[node name="Wall14" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1167, 690)
+
+[node name="Wall15" parent="Wallls" instance=ExtResource("4_bpja1")]
+position = Vector2(1868, -117)
