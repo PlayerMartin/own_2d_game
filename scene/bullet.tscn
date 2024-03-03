@@ -6,15 +6,23 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3erm"]
 size = Vector2(16, 6)
 
-[node name="BulletBody" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D"]
 gravity_scale = 0.0
+lock_rotation = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_75mlf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.955539, 0.965935)
 shape = SubResource("RectangleShape2D_n3erm")
-script = ExtResource("1_75mlf")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 position = Vector2(-3.27826e-07, -4.47035e-08)
 scale = Vector2(0.32, 0.3)
 texture = ExtResource("1_5uggc")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

@@ -18,6 +18,8 @@ public partial class Gun : Node2D
 	public int AmmoCurrCount { get; set; }
 	[Export]
 	public float ShotSpeed { get; set; }
+	[Export]
+	public int Range { get; set; } = 1; // seconds alive
 
 	[Export]
 	PackedScene bullet_scn;
