@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class Gun : Line2D
+public partial class Gun : Node2D
 {
 	[Export]
 	public double Firerate { get; set; }
@@ -25,7 +25,7 @@ public partial class Gun : Line2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		player = (Player) this.GetParent(); // get Player
+		player = (Player) GetNode("/root/World/Player"); // get Player
 		// bullet = (Bullet) GetNode("/root/World/Player/Body/Gun");
 		GD.Print($"weapon {player.Weapon}");
 		InitStats();
