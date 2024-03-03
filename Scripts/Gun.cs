@@ -32,7 +32,6 @@ public partial class Gun : Node2D
 	public override void _Ready()
 	{
 		player = (Player) GetNode("/root/World/Player"); // get Player
-		// bullet = (Bullet) GetNode("/root/World/Player/Body/Gun");
 		GD.Print($"weapon {player.Weapon}");
 		InitStats();
 	}
