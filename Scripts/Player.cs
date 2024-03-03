@@ -1,14 +1,12 @@
 using Godot;
-using System;
 
 public enum weapon { sniper, pistol, shotgun, assault_rifle, machine_gun };
 
-public partial class Player : Node2D
+
+public partial class Player : CharacterBody2D
 {
-	[Export]
+    [Export]
 	public weapon Weapon { get; set; }
-	[Export]
-	public double Speed { get; private set; }
 	[Export]
 	public int Health { get; private set; }
 	[Export]
@@ -19,16 +17,25 @@ public partial class Player : Node2D
 	public int Exp { get; private set; }
 	[Export]
 	public int Level { get; private set; }
+    [Export]
+    public int Speed { get; set; } = 400;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		Weapon = weapon.sniper;
-	}
+    public void GetInput()
+    {
+        Weapon = weapon.sniper;
+        Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+        this.Velocity = inputDirection * Speed;
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public void Aim() 
+    {
+        this.LookAt(GetGlobalMousePosition());
+    }
 
-	}
+    public override void _PhysicsProcess(double delta)
+    {
+        GetInput();
+        MoveAndSlide();
+        Aim();
+    }
 }

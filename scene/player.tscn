@@ -1,20 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://djmwjxd3lom3m"]
 
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_6vnh6"]
 [ext_resource type="Texture2D" uid="uid://dw7g6qrreww7l" path="res://icon.svg" id="1_biy6c"]
-[ext_resource type="Script" path="res://Scripts/Body.cs" id="1_n5p4t"]
 [ext_resource type="Script" path="res://Scripts/Gun.cs" id="3_iaje4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l8cwe"]
 radius = 63.0
 
-[node name="Body" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.00862, 1)
-script = ExtResource("1_n5p4t")
+script = ExtResource("1_6vnh6")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l8cwe")
 
-[node name="Gun" type="Line2D" parent="Hitbox"]
+[node name="Skin" type="Sprite2D" parent="Hitbox"]
+rotation = 1.5708
+scale = Vector2(0.991456, 1)
+texture = ExtResource("1_biy6c")
+
+[node name="Gun" type="Line2D" parent="."]
 show_behind_parent = true
 position = Vector2(-5.0822e-06, 0.38016)
 rotation = 1.5708
@@ -22,8 +27,3 @@ scale = Vector2(0.991456, 0.983471)
 points = PackedVector2Array(39, 13, 39, -123.42)
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("3_iaje4")
-
-[node name="Skin" type="Sprite2D" parent="Hitbox"]
-rotation = 1.5708
-scale = Vector2(0.991456, 1)
-texture = ExtResource("1_biy6c")
