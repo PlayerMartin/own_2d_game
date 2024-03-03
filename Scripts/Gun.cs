@@ -4,25 +4,16 @@ using System.Threading.Tasks;
 
 public partial class Gun : Node2D
 {
-	[Export]
-	public double Firerate { get; set; }
-	[Export]
-	public double BulletPerSecond { get; set; }
-	[Export]
-	public int Damage { get; set; }
-	[Export]
-	public int ReloadTime { get; set; }
-	[Export]
-	public int AmmoMaxCount { get; set; }
-	[Export]
-	public int AmmoCurrCount { get; set; }
-	[Export]
-	public float ShotSpeed { get; set; }
-	[Export]
-	public int Range { get; set; } = 1; // seconds alive
+	[Export] public double Firerate { get; set; }
+	[Export] public double BulletPerSecond { get; set; }
+	[Export] public int Damage { get; set; }
+	[Export] public int ReloadTime { get; set; }
+	[Export] public int AmmoMaxCount { get; set; }
+	[Export] public int AmmoCurrCount { get; set; }
+	[Export] public float ShotSpeed { get; set; }
+	[Export] public int Range { get; set; } = 1; // seconds alive
 
-	[Export]
-	PackedScene bullet_scn;
+	[Export] PackedScene bullet_scn;
 
 	public bool reloading = false;
 	public double time_until_fire;
