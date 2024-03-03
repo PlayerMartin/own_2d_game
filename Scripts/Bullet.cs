@@ -16,4 +16,16 @@ public partial class Bullet : RigidBody2D
 	public override void _Process(double delta)
 	{
 	}
+
+	public void _on_body_entered(Node node)
+	{
+		// doesnt effect Player2 on World scene, wtf
+		// if (node is Player) {
+		// 	QueueFree();
+		// }
+
+		if (node is CharacterBody2D) {
+			QueueFree();
+		}
+	}
 }
