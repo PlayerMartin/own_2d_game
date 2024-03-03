@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://begb5qtgnr7er"]
+
+[ext_resource type="Script" path="res://Scripts/Middle.cs" id="1_puwp2"]
+[ext_resource type="Texture2D" uid="uid://cxdh7227bslv7" path="res://Resources/MiddleNotActive.png" id="2_3el0m"]
+[ext_resource type="Texture2D" uid="uid://b4ve5yccci25r" path="res://Resources/MiddleActive.png" id="2_y7uxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6smro"]
+size = Vector2(128, 128)
+
+[node name="Middle" type="Area2D" node_paths=PackedStringArray("sprite")]
+show_behind_parent = true
+input_pickable = false
+script = ExtResource("1_puwp2")
+sprite = NodePath("CollisionShape2D/Sprite2D")
+mid_activated = ExtResource("2_y7uxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6smro")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("2_3el0m")

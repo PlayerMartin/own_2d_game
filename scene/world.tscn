@@ -1,20 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh42n8f3feksf"]
+[gd_scene load_steps=5 format=3 uid="uid://dh42n8f3feksf"]
 
 [ext_resource type="PackedScene" uid="uid://djmwjxd3lom3m" path="res://scene/player.tscn" id="1_7lehv"]
 [ext_resource type="PackedScene" uid="uid://jb8qr0stmq0m" path="res://scene/cover.tscn" id="3_gibsh"]
 [ext_resource type="PackedScene" uid="uid://o4umdmw3ikgp" path="res://scene/wall.tscn" id="4_bpja1"]
+[ext_resource type="PackedScene" uid="uid://begb5qtgnr7er" path="res://scene/middle.tscn" id="4_qcfr7"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_7lehv")]
-position = Vector2(219, 358)
+position = Vector2(283, 364)
 
 [node name="Player2" parent="." instance=ExtResource("1_7lehv")]
 position = Vector2(811, 321)
 rotation = -3.11829
 script = null
 
-[node name="Covers" type="Node" parent="."]
+[node name="Covers" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
 
 [node name="Cover" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(1370, 111)
@@ -39,6 +42,7 @@ rotation = 0.785397
 [node name="Cover6" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(1232, -354)
 rotation = 0.523598
+scale = Vector2(0.72053, 0.72053)
 
 [node name="Cover7" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(635, -294)
@@ -46,6 +50,7 @@ position = Vector2(635, -294)
 [node name="Cover8" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(260, 868)
 rotation = 0.523598
+scale = Vector2(0.72053, 0.72053)
 
 [node name="Cover9" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(2040, 164)
@@ -61,13 +66,17 @@ position = Vector2(915, 914)
 [node name="Cover12" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(1253, 625)
 rotation = -0.523598
+scale = Vector2(0.72053, 0.72053)
 
-[node name="Walls" type="Node" parent="."]
+[node name="Walls" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
 
 [node name="Wall" parent="Walls" instance=ExtResource("4_bpja1")]
 position = Vector2(691, 673)
 
 [node name="Wall2" parent="Walls" instance=ExtResource("4_bpja1")]
+show_behind_parent = false
 position = Vector2(388, 318)
 
 [node name="Wall3" parent="Walls" instance=ExtResource("4_bpja1")]
@@ -108,3 +117,7 @@ position = Vector2(1167, 690)
 
 [node name="Wall15" parent="Walls" instance=ExtResource("4_bpja1")]
 position = Vector2(1868, -117)
+
+[node name="Middle" parent="." instance=ExtResource("4_qcfr7")]
+position = Vector2(1004, 363)
+scale = Vector2(1.77415, 1.77415)
