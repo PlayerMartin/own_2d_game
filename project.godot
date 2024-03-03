@@ -13,7 +13,7 @@ config_version=5
 config/name="Own 2d Shooter"
 run/main_scene="res://scene/world.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Resources/icon.svg"
 
 [dotnet]
 
