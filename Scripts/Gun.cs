@@ -15,12 +15,14 @@ public partial class Gun : Node2D
 	[Export]
 	public int AmmoCurrCount { get; set; }
 	[Export]
-	public double ShotSpeed { get; set; }
+	public float ShotSpeed { get; set; }
+
+	[Export]
+	PackedScene bullet_scn;
 
 	public bool reloading = false;
-
+	
 	Player player;
-	Bullet bullet;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -41,7 +43,7 @@ public partial class Gun : Node2D
 				ReloadTime = 3;
 				AmmoMaxCount = 6;
 				AmmoCurrCount = AmmoMaxCount;
-				ShotSpeed = 100;
+				ShotSpeed = 1000;
 				break;
 			default: // TODO
 				break;
@@ -87,8 +89,19 @@ public partial class Gun : Node2D
 	{
 		if (AmmoCurrCount != 0 && !reloading) {
 			AmmoCurrCount--;
+			SpawnBullet();
 			GD.Print($"Curr ammo {AmmoCurrCount} at {mouseEvent.Position}");
 		}
+	}
+
+	public void SpawnBullet()
+	{
+		RigidBody2D bullet = bullet_scn.Instantiate<RigidBody2D>();
+		bullet.Rotation = this.GlobalRotation;
+		bullet.GlobalPosition = this.GlobalPosition;
+		bullet.LinearVelocity = bullet.Transform.X * ShotSpeed;
+
+		GetTree().Root.AddChild(bullet);
 	}
 
 	public async void Reload()
