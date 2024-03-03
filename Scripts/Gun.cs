@@ -2,10 +2,12 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class Gun : Line2D
+public partial class Gun : Node2D
 {
 	[Export]
 	public double Firerate { get; set; }
+	[Export]
+	public double BulletPerSecond { get; set; }
 	[Export]
 	public int Damage { get; set; }
 	[Export]
@@ -15,16 +17,23 @@ public partial class Gun : Line2D
 	[Export]
 	public int AmmoCurrCount { get; set; }
 	[Export]
-	public double ShotSpeed { get; set; }
+	public float ShotSpeed { get; set; }
+	[Export]
+	public int Range { get; set; } = 1; // seconds alive
+
+	[Export]
+	PackedScene bullet_scn;
 
 	public bool reloading = false;
-
+	public double time_until_fire;
+	public double GlobalDelta;
+	
 	Player player;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		player = (Player) this.GetParent().GetParent(); // get Player
+		player = (Player) GetNode("/root/World/Player"); // get Player
 		GD.Print($"weapon {player.Weapon}");
 		InitStats();
 	}
@@ -34,22 +43,24 @@ public partial class Gun : Line2D
 		switch (player.Weapon)
 		{
 			case weapon.sniper:
-				Firerate = 1;
 				Damage = 80;
+				BulletPerSecond = 1;
 				ReloadTime = 3;
 				AmmoMaxCount = 6;
 				AmmoCurrCount = AmmoMaxCount;
-				ShotSpeed = 100;
+				ShotSpeed = 1000;
 				break;
 			default: // TODO
 				break;
 		}
+		Firerate = 1 / BulletPerSecond;
+		time_until_fire = Firerate;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+		time_until_fire += delta;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -83,10 +94,22 @@ public partial class Gun : Line2D
 
 	public void Shoot(InputEventMouseButton mouseEvent)
 	{
-		if (AmmoCurrCount != 0 && !reloading) {
+		if (time_until_fire >= Firerate && AmmoCurrCount != 0 && !reloading) {
 			AmmoCurrCount--;
+			SpawnBullet();
+			time_until_fire = 0;
 			GD.Print($"Curr ammo {AmmoCurrCount} at {mouseEvent.Position}");
 		}
+	}
+
+	public void SpawnBullet()
+	{
+		RigidBody2D bullet = bullet_scn.Instantiate<RigidBody2D>();
+		bullet.Rotation = this.GlobalRotation;
+		bullet.GlobalPosition = this.GlobalPosition;
+		bullet.LinearVelocity = bullet.Transform.X * ShotSpeed;
+		
+		GetTree().Root.AddChild(bullet);
 	}
 
 	public async void Reload()
