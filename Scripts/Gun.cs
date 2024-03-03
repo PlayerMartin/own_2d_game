@@ -108,7 +108,7 @@ public partial class Gun : Node2D
 		bullet.Rotation = this.GlobalRotation;
 		bullet.GlobalPosition = this.GlobalPosition;
 		bullet.LinearVelocity = bullet.Transform.X * ShotSpeed;
-
+		
 		GetTree().Root.AddChild(bullet);
 	}
 
