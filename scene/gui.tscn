@@ -6,6 +6,7 @@
 [node name="PanelContainer2" type="PanelContainer"]
 offset_right = 61.0
 offset_bottom = 23.0
+scale = Vector2(1.47346, 1.47346)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -25,7 +26,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("1_gihfw")
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/StatusHContainer"]
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
 show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 3
