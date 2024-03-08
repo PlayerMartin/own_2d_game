@@ -42,7 +42,6 @@ rotation = 0.785397
 [node name="Cover6" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(1232, -354)
 rotation = 0.523598
-scale = Vector2(0.72053, 0.72053)
 
 [node name="Cover7" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(635, -294)
@@ -50,7 +49,6 @@ position = Vector2(635, -294)
 [node name="Cover8" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(260, 868)
 rotation = 0.523598
-scale = Vector2(0.72053, 0.72053)
 
 [node name="Cover9" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(2040, 164)
@@ -66,7 +64,6 @@ position = Vector2(915, 914)
 [node name="Cover12" parent="Covers" instance=ExtResource("3_gibsh")]
 position = Vector2(1253, 625)
 rotation = -0.523598
-scale = Vector2(0.72053, 0.72053)
 
 [node name="Walls" type="CanvasLayer" parent="."]
 layer = -1
@@ -118,6 +115,7 @@ position = Vector2(1167, 690)
 [node name="Wall15" parent="Walls" instance=ExtResource("4_bpja1")]
 position = Vector2(1868, -117)
 
-[node name="Middle" parent="." instance=ExtResource("4_qcfr7")]
+[node name="Middle" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_qcfr7")]
 position = Vector2(1004, 363)
 scale = Vector2(1.77415, 1.77415)
+player = NodePath("../Player")

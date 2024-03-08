@@ -7,11 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6smro"]
 size = Vector2(128, 128)
 
-[node name="Middle" type="Area2D" node_paths=PackedStringArray("sprite")]
+[node name="Middle" type="Area2D" node_paths=PackedStringArray("sprite") groups=["Middle"]]
 show_behind_parent = true
+collision_mask = 2
 input_pickable = false
 script = ExtResource("1_puwp2")
 sprite = NodePath("CollisionShape2D/Sprite2D")
+mid_deactivated = ExtResource("2_3el0m")
 mid_activated = ExtResource("2_y7uxp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
