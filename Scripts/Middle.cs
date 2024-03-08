@@ -40,7 +40,9 @@ public partial class Middle : Area2D
 	{
 		waiting = true;
 		await Task.Delay(ExpDelay * 1000);
-		player.Exp += ExpGain;
+		if (activated) {
+			player.Exp += ExpGain;
+		}
 		waiting = false;
 	}
 }
