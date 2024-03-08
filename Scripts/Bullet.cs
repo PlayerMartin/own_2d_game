@@ -24,7 +24,7 @@ public partial class Bullet : RigidBody2D
 		// 	QueueFree();
 		// }
 
-		if (node is CharacterBody2D) {
+		if (node is CharacterBody2D || node is StaticBody2D) {
 			QueueFree();
 		}
 	}

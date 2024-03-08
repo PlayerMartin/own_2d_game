@@ -10,12 +10,30 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l8cwe"]
 radius = 63.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(0, -1)
 scale = Vector2(0.506422, 0.502094)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_6vnh6")
+
+[node name="GUICanvas" parent="." instance=ExtResource("6_txqet")]
+
+[node name="Gun" type="Node2D" parent="."]
+show_behind_parent = true
+position = Vector2(183.641, 1.99166)
+scale = Vector2(0.643398, 0.440476)
+script = ExtResource("3_iaje4")
+bullet_scn = ExtResource("4_4oe1o")
+
+[node name="GunSkin" type="Sprite2D" parent="Gun"]
+show_behind_parent = true
+position = Vector2(-135.039, 0)
+scale = Vector2(1.19986, 1)
+texture = ExtResource("3_qle80")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -39.8332)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -40)
@@ -25,20 +43,3 @@ shape = SubResource("CircleShape2D_l8cwe")
 rotation = 1.5708
 scale = Vector2(0.991456, 1)
 texture = ExtResource("1_biy6c")
-
-[node name="Gun" type="Node2D" parent="."]
-show_behind_parent = true
-position = Vector2(144.752, 1)
-scale = Vector2(0.643398, 0.440476)
-script = ExtResource("3_iaje4")
-bullet_scn = ExtResource("4_4oe1o")
-
-[node name="GunSkin" type="Sprite2D" parent="Gun"]
-show_behind_parent = true
-position = Vector2(-110.541, 0.851349)
-texture = ExtResource("3_qle80")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -39.8332)
-
-[node name="GUICanvas" parent="." instance=ExtResource("6_txqet")]

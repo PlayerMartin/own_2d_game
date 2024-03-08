@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
 	[Export] public int Health { get; private set; }
 	[Export] public double ViewRange { get; private set; }
 	[Export] public int Armon { get; private set; }
-	[Export] public int Exp { get; private set; }
+	[Export] public double Exp { get; set; }
 	[Export] public int Level { get; private set; }
     [Export] public int Speed { get; set; } = 400;
 
