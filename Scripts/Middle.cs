@@ -27,7 +27,6 @@ public partial class Middle : Area2D
 			GainExp();
 		}
 		if (!activated && this.OverlapsBody(player)) {
-			GD.Print("Enter");
 			sprite.Texture = mid_activated;
 			activated = true;
 		}
