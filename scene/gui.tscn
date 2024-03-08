@@ -1,38 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://upv7dyau2o4w"]
+[gd_scene load_steps=4 format=3 uid="uid://upv7dyau2o4w"]
 
 [ext_resource type="Script" path="res://Scripts/AmmoText.cs" id="1_gihfw"]
 [ext_resource type="Script" path="res://Scripts/ReloadGUI.cs" id="2_m0cue"]
+[ext_resource type="Script" path="res://Scripts/EXPGUI.cs" id="3_ng475"]
 
 [node name="GUICanvas" type="CanvasLayer"]
 scale = Vector2(1.47346, 1.47346)
 transform = Transform2D(1.47346, 0, 0, 1.47346, 0, 0)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_top = 416.706
-offset_right = 138.0
-offset_bottom = 439.706
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_top = 360.376
+offset_right = 354.0
+offset_bottom = 439.376
 
-[node name="StatusHContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="StatusHContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="AmmoText" type="Label" parent="PanelContainer/StatusHContainer"]
+[node name="AmmoText" type="Label" parent="VBoxContainer/StatusHContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 4.0
 text = "Ammo:"
 
-[node name="AmmoVar" type="Label" parent="PanelContainer/StatusHContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/StatusHContainer/AmmoText"]
+modulate = Color(1, 1, 1, 0.321569)
+show_behind_parent = true
+layout_mode = 2
+offset_top = 2.0
+offset_right = 354.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_m0cue")
+
+[node name="AmmoVar" type="Label" parent="VBoxContainer/StatusHContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("1_gihfw")
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
-show_behind_parent = true
+[node name="StatusHContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-script = ExtResource("2_m0cue")
+size_flags_vertical = 3
 
-[node name="HealthBar" type="TextureProgressBar" parent="PanelContainer"]
+[node name="EXPText" type="Label" parent="VBoxContainer/StatusHContainer2"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_stretch_ratio = 5.0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+text = "EXP:"
+
+[node name="EXPVar" type="Label" parent="VBoxContainer/StatusHContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_ng475")
+
+[node name="StatusHContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.02
+
+[node name="Label" type="Label" parent="VBoxContainer/StatusHContainer3"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+text = "HP:"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/StatusHContainer3"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+show_percentage = false
