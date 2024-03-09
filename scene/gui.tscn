@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://upv7dyau2o4w"]
+[gd_scene load_steps=5 format=3 uid="uid://upv7dyau2o4w"]
 
 [ext_resource type="Script" path="res://Scripts/AmmoText.cs" id="1_gihfw"]
 [ext_resource type="Script" path="res://Scripts/ReloadGUI.cs" id="2_m0cue"]
 [ext_resource type="Script" path="res://Scripts/EXPGUI.cs" id="3_ng475"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.cs" id="4_q87ad"]
 
 [node name="GUICanvas" type="CanvasLayer"]
 scale = Vector2(1.47346, 1.47346)
@@ -65,8 +66,10 @@ size_flags_stretch_ratio = 0.2
 text = "HP:"
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/StatusHContainer3"]
+self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
 show_percentage = false
+script = ExtResource("4_q87ad")

@@ -6,7 +6,7 @@ public enum weapon { sniper, pistol, shotgun, assault_rifle, machine_gun };
 public partial class Player : CharacterBody2D
 {
     [Export] public weapon Weapon { get; set; }
-	[Export] public int Health { get; private set; }
+	[Export] public int Health { get; set; } = 100;
 	[Export] public double ViewRange { get; private set; }
 	[Export] public int Armon { get; private set; }
 	[Export] public double Exp { get; set; }
